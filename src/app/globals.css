@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-noto-sans-tc), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --color-canvas: #f4f3f0;
+  --color-surface: #ffffff;
+  --color-subtle: #faf9f7;
+  --color-sunken: #eeece8;
+  --color-border: #e4e1db;
+  --color-border-strong: #d2cec6;
+  --color-fg: #1e1c19;
+  --color-fg-muted: #5f5b54;
+  --color-fg-subtle: #8e897f;
+
+  --color-accent: #2f6feb;
+  --color-accent-hover: #2560d4;
+  --color-accent-soft: #e7effd;
+  --color-accent-fg: #1d56c9;
+
+  --color-success: #2f8a5b;
+  --color-success-soft: #e5f3eb;
+  --color-success-fg: #22704a;
+  --color-warning: #c5861f;
+  --color-warning-soft: #fbf1de;
+  --color-warning-fg: #8a5a0f;
+  --color-danger: #c8443a;
+  --color-danger-soft: #fbe9e7;
+  --color-danger-fg: #a8362d;
+
+  /* 已處理衝突（中性灰） */
+  --color-resolved: #8e897f;
+  --color-resolved-soft: #eeece8;
+
+  /* 圖面畫布與格線 */
+  --color-plan: #fbfaf8;
+  --color-grid: #eeedeb;
+
+  /* Toast 在淺色主題為深底、深色主題為淺底 */
+  --color-toast: #262420;
+  --color-toast-fg: #f4f3f0;
+
+  /* 3D 材質色票 */
+  --color-mat-oak: #c9a77c;
+  --color-mat-glass: #b9c6cf;
+
+  /* 機電系統色：不使用紅與橘黃（保留給衝突狀態） */
+  --color-sys-water: #0e8c82;
+  --color-sys-drain: #8a5634;
+  --color-sys-power: #2a3f96;
+  --color-sys-lowv: #b42a82;
+}
+
+.dark {
+  --color-canvas: #141311;
+  --color-surface: #1c1b19;
+  --color-subtle: #211f1d;
+  --color-sunken: #100f0e;
+  --color-border: #2e2c29;
+  --color-border-strong: #403d38;
+  --color-fg: #ece9e4;
+  --color-fg-muted: #a7a198;
+  --color-fg-subtle: #78736b;
+
+  --color-accent: #4c8dff;
+  --color-accent-hover: #6a9fff;
+  --color-accent-soft: color-mix(in srgb, #4c8dff 16%, transparent);
+  --color-accent-fg: #8db6ff;
+
+  --color-success: #4cb782;
+  --color-success-soft: color-mix(in srgb, #4cb782 14%, transparent);
+  --color-success-fg: #7fd3a8;
+  --color-warning: #e0a33e;
+  --color-warning-soft: color-mix(in srgb, #e0a33e 14%, transparent);
+  --color-warning-fg: #e0a33e;
+  --color-danger: #ef6b5f;
+  --color-danger-soft: color-mix(in srgb, #ef6b5f 14%, transparent);
+  --color-danger-fg: #f59a90;
+
+  --color-resolved: #78736b;
+  --color-resolved-soft: color-mix(in srgb, #ffffff 6%, transparent);
+
+  --color-plan: #191816;
+  --color-grid: #24221f;
+
+  --color-toast: #ece9e4;
+  --color-toast-fg: #1e1c19;
+
+  --color-sys-water: #3cc2b6;
+  --color-sys-drain: #c48e66;
+  --color-sys-power: #8597ea;
+  --color-sys-lowv: #e46db8;
+}
+
+/* 圖面畫布：淡格線背景 */
+@utility grid-paper {
+  background-color: var(--color-plan);
+  background-image:
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-fg);
+}
